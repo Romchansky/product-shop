@@ -1,9 +1,10 @@
-package ua.goit.service;
+package ua.goit.repository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ua.goit.model.Product;
 import ua.goit.repository.ShopStorageImpl;
+import ua.goit.service.ProductBucketService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
