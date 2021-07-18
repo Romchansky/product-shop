@@ -57,16 +57,12 @@ public class ProductBucketServiceTest {
     @Test
     public void shouldCalculateTotalCostEmptyBucket() {
         negativeTestCalculateCost(null, "Please, check your bucket");
-
     }
 
     @Test
     public void shouldCalculateTotalCostOnlySpaceBucket() {
         negativeTestCalculateCost(" ", "Please, check your bucket");
     }
-
-//    @Test
-//    public void shouldCalculateWithNullProduct() { testCalculateCost(0.0, null); }
 
     private void testCalculateCost(double expectedValue, String productIds) {
         assertEquals(expectedValue, bucket.calculateTotalCost(productIds), accuracy);
@@ -75,6 +71,5 @@ public class ProductBucketServiceTest {
     private void negativeTestCalculateCost(String productIds, String exceptionMessage) {
         assertThrows(NullPointerException.class, () -> bucket.calculateTotalCost(productIds), exceptionMessage);
     }
-
 
 }
