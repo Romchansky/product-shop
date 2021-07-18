@@ -1,7 +1,7 @@
 package ua.goit.model;
 
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,23 +14,24 @@ public class ProductTest {
 
     private Product product;
 
-    @BeforeEach
+    @Before
     public void init() {
         product = new Product("A", 1.25, 3, 3.0);
     }
 
     @Test
-    public void testGetPrice() {
+    public void shouldGetPrice() {
         assertEquals(3.0, product.getPrice(3L), accuracy);
     }
 
     @Test
-    public void testMinusQuantity() {
+    public void shouldThrowRuntimeExceptionWithMinusQuantity() {
         negativeTestCalculateCost(-2L, "Amount can't be null or less than 1");
     }
 
+
     @Test
-    public void testNullQuantity() {
+    public void shouldThrowRuntimeExceptionWithNullQuantity() {
         negativeTestCalculateCost(null, "Amount can't be null or less than 1");
     }
 

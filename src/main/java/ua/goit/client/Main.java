@@ -14,6 +14,7 @@ public class Main {
                 new Product("C", 1.0, 6, 5.0),
                 new Product("D", 0.75)));
 
+
         double costBucket = bucket.calculateTotalCost(" ABCDABA");
         System.out.println(costBucket);
     }

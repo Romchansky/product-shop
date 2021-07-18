@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @AllArgsConstructor
-public class Product implements Saleble, BaseEntity<String> {
+public class Product implements Saleable, BaseEntity<String> {
 
     private String id;
     private Double productPrice;

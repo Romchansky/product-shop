@@ -1,7 +1,7 @@
 package ua.goit.service;
 
 import ua.goit.model.BaseEntity;
-import ua.goit.model.Saleble;
+import ua.goit.model.Saleable;
 import ua.goit.repository.ShopStorage;
 
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class ShopBucketService<T extends Saleble & BaseEntity<ID>, ID> {
+public abstract class ShopBucketService<T extends Saleable & BaseEntity<ID>, ID> {
 
     private final ShopStorage<T, ID> shopStorage;
 

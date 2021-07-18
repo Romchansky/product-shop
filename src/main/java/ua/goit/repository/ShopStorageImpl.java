@@ -1,14 +1,14 @@
 package ua.goit.repository;
 
 import ua.goit.model.BaseEntity;
-import ua.goit.model.Saleble;
+import ua.goit.model.Saleable;
 
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ShopStorageImpl<T extends Saleble & BaseEntity<ID>, ID> implements ShopStorage<T, ID> {
+public class ShopStorageImpl<T extends Saleable & BaseEntity<ID>, ID> implements ShopStorage<T, ID> {
 
     private final Map<ID, T> productsBucket;
 

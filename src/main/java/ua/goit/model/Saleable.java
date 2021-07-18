@@ -1,7 +1,6 @@
 package ua.goit.model;
 
 @FunctionalInterface
-public interface Saleble {
-
+public interface Saleable {
     Double getPrice(Long quantity);
 }
