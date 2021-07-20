@@ -12,11 +12,11 @@ public class Main {
                 new Product("A", 1.25, 3, 3.0),
                 new Product("B", 4.25),
                 new Product("C", 1.0, 6, 5.0),
-               // new Product("F", null),
+                new Product("F", null),
                 new Product("D", 0.75)));
 
 
-        double costBucket = bucket.calculateTotalCost(" ABCDABA");
+        double costBucket = bucket.calculateTotalCost(" ABCDABAF");
         System.out.println(costBucket);
     }
 }

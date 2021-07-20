@@ -20,7 +20,7 @@ public class Product implements Saleable, BaseEntity<String> {
     public Double getPrice(Long quantity) {
         if (quantity == null || quantity < 1) throw new RuntimeException("Bucket is empty, please put something in");
 
-       // if (productPrice == null) throw new NullPointerException("Product price cannot be null!");
+        if (productPrice == null) throw new NullPointerException("Product price cannot be null!");
 
             return salesProductQuantity == null ? quantity * productPrice
                     : (quantity / salesProductQuantity) * salesProductPrice + (quantity % salesProductQuantity) * productPrice;
