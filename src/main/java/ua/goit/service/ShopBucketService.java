@@ -20,7 +20,8 @@ public abstract class ShopBucketService<T extends Saleable & BaseEntity<ID>, ID>
     protected double calculateTotalCost(ID... ids) {
         final Map<ID, Long> quantity = Optional.ofNullable(ids).map(id -> Arrays.stream(id)
                 .map(shopStorage::findById)
-                .flatMap(Optional::stream)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
                 .collect(Collectors.groupingBy(BaseEntity::getId, Collectors.counting())))
                 .orElseThrow(() -> new NullPointerException("Empty bucket, try again"));
       if(quantity.isEmpty()) throw new NullPointerException("Empty bucket, try again");

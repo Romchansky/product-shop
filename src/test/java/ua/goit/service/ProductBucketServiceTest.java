@@ -1,10 +1,17 @@
 package ua.goit.service;
 
+
+
+import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import ua.goit.model.Product;
+import ua.goit.repository.ShopStorage;
 import ua.goit.repository.ShopStorageImpl;
 
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -17,11 +24,16 @@ public class ProductBucketServiceTest {
 
     @BeforeEach
     public void init() {
-        this.bucket = new ProductBucketService(new ShopStorageImpl<>(
-                new Product("A", 1.25, 3, 3.0),
-                new Product("B", 4.25),
-                new Product("C", 1.0, 6, 5.0),
-                new Product("D", 0.75)));
+
+        ShopStorage mockStorage = Mockito.mock(ShopStorage.class);
+
+        Mockito.when(mockStorage.findById("A")).thenReturn(Optional.of(new Product("A", 1.25, 3, 3.0)));
+        Mockito.when(mockStorage.findById("B")).thenReturn(Optional.of(new Product("B", 4.25)));
+        Mockito.when(mockStorage.findById("C")).thenReturn(Optional.of(new Product("C", 1.0, 6, 5.0)));
+        Mockito.when(mockStorage.findById("D")).thenReturn(Optional.of(new Product("D", 0.75)));
+
+       this.bucket = new ProductBucketService(mockStorage);
+
     }
 
     @Test
