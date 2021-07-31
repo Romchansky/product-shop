@@ -38,5 +38,4 @@ public class ProductTest {
         assertThrows(RuntimeException.class, () -> product.getPrice(quantity), exceptionMessage);
     }
 
-
 }

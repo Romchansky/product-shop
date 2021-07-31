@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ShopStorageImpl<T extends Saleable & BaseEntity<ID>, ID> implements ShopStorage<T, ID> {
+public class ShopStorageImpl<T extends BaseEntity<ID> & Saleable, ID> implements ShopStorage<T, ID> {
 
     private final Map<ID, T> productsBucket;
 

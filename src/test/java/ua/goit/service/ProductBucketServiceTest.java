@@ -1,14 +1,11 @@
 package ua.goit.service;
 
 
-
-import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ua.goit.model.Product;
 import ua.goit.repository.ShopStorage;
-import ua.goit.repository.ShopStorageImpl;
 
 
 import java.util.Optional;
@@ -16,15 +13,15 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
 public class ProductBucketServiceTest {
 
     private final double accuracy = 0.001;
-
     private ProductBucketService bucket;
+
 
     @BeforeEach
     public void init() {
-
         ShopStorage mockStorage = Mockito.mock(ShopStorage.class);
 
         Mockito.when(mockStorage.findById("A")).thenReturn(Optional.of(new Product("A", 1.25, 3, 3.0)));
@@ -32,7 +29,7 @@ public class ProductBucketServiceTest {
         Mockito.when(mockStorage.findById("C")).thenReturn(Optional.of(new Product("C", 1.0, 6, 5.0)));
         Mockito.when(mockStorage.findById("D")).thenReturn(Optional.of(new Product("D", 0.75)));
 
-       this.bucket = new ProductBucketService(mockStorage);
+        this.bucket = new ProductBucketService(mockStorage);
 
     }
 
@@ -83,5 +80,4 @@ public class ProductBucketServiceTest {
     private void negativeTestCalculateCost(String productIds, String exceptionMessage) {
         assertThrows(NullPointerException.class, () -> bucket.calculateTotalCost(productIds), exceptionMessage);
     }
-
 }

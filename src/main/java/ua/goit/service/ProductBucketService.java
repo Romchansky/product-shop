@@ -11,9 +11,10 @@ public class ProductBucketService extends ShopBucketService<Product, String> {
         super(shopStorage);
     }
 
-
     public double calculateTotalCost(String args) {
-        return super.calculateTotalCost(Optional.ofNullable(args).map(arg -> arg.toUpperCase().split("")).orElse(null));
+        return super.calculateTotalCost(Optional.ofNullable(args)
+                .map(arg -> arg.toUpperCase().split(""))
+                .orElse(null));
     }
 
 }
