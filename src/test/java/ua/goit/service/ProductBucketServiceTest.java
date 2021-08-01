@@ -24,6 +24,7 @@ public class ProductBucketServiceTest {
     public void init() {
         ShopStorage mockStorage = Mockito.mock(ShopStorage.class);
 
+        Mockito.when(mockStorage.findById(Mockito.any())).thenReturn(Optional.empty());
         Mockito.when(mockStorage.findById("A")).thenReturn(Optional.of(new Product("A", 1.25, 3, 3.0)));
         Mockito.when(mockStorage.findById("B")).thenReturn(Optional.of(new Product("B", 4.25)));
         Mockito.when(mockStorage.findById("C")).thenReturn(Optional.of(new Product("C", 1.0, 6, 5.0)));
